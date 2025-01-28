@@ -47,21 +47,22 @@ footer {
 }
 
 .pacman {
-    width: 30px;
-    height: 30px;
-    background: yellow;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
     position: absolute;
-    animation: movePacman 15s linear infinite;
+    background-image: url('images/pacman-sprites.png');
+    background-size: 128px 32px;
+    animation: movePacman 15s linear infinite, animatePacman 0.5s steps(4) infinite;
 }
 
 .ghost {
-    width: 30px;
-    height: 30px;
-    background: red;
-    border-radius: 15px 15px 0 0;
+    width: 32px;
+    height: 32px;
     position: absolute;
-    animation: moveGhost 20s linear infinite;
+    background-image: url('images/pacman-sprites.png');
+    background-position: 0 -32px;
+    background-size: 128px 128px;
+    animation: moveGhost 20s linear infinite, animateGhost 0.5s steps(2) infinite;
 }
 
 .tetris-piece {
@@ -177,14 +178,49 @@ h2 {
     margin-bottom: 20px;
 }
 
+@keyframes animatePacman {
+    from { background-position: 0 0; }
+    to { background-position: -128px 0; }
+}
+
+@keyframes animateGhost {
+    from { background-position: -64px -32px; }
+    to { background-position: -128px -32px; }
+}
+
 @keyframes movePacman {
-    0% { left: -50px; top: 20%; }
-    100% { left: 100%; top: 20%; }
+    0% { 
+        left: -50px; 
+        top: 20%;
+        transform: scaleX(1);
+    }
+    49% {
+        transform: scaleX(1);
+    }
+    50% { 
+        left: 100%; 
+        top: 20%;
+        transform: scaleX(-1);
+    }
+    99% {
+        transform: scaleX(-1);
+    }
+    100% { 
+        left: -50px; 
+        top: 20%;
+        transform: scaleX(1);
+    }
 }
 
 @keyframes moveGhost {
-    0% { right: -50px; top: 40%; }
-    100% { right: 100%; top: 40%; }
+    0% { 
+        right: -50px; 
+        top: 40%;
+    }
+    100% { 
+        right: 100%; 
+        top: 40%;
+    }
 }
 
 @keyframes rotateTetris {
