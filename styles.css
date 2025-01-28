@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+header {
+    background: rgba(53, 66, 74, 0.9);
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #35424a;
+    color: #ffffff;
+}
+
+.game-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pacman {
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+    animation: movePacman 15s linear infinite;
+}
+
+.ghost {
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    animation: moveGhost 20s linear infinite;
+}
+
+.tetris-piece {
+    width: 60px;
+    height: 15px;
+    background: cyan;
+    position: absolute;
+    animation: rotateTetris 10s linear infinite;
+}
+
+.profile-section {
+    background: rgba(53, 66, 74, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.achievement-card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #00ff00;
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.achievement-card h3 {
+    color: #00ff00;
+    margin: 0 0 10px 0;
+}
+
+.interests-list {
+    list-style: none;
+    padding: 0;
+}
+
+.interests-list li {
+    display: inline-block;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 15px;
+    border: 1px solid #00ff00;
+}
+
+.publication-card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #00ff00;
+}
+
+.publication-card p {
+    border-left: 3px solid #00ff00;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+h2 {
+    color: #00ff00;
+    border-bottom: 2px solid #00ff00;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+@keyframes movePacman {
+    0% { left: -50px; top: 20%; }
+    100% { left: 100%; top: 20%; }
+}
+
+@keyframes moveGhost {
+    0% { right: -50px; top: 40%; }
+    100% { right: 100%; top: 40%; }
+}
+
+@keyframes rotateTetris {
+    0% { 
+        transform: rotate(0deg);
+        top: -50px;
+        left: 50%;
+    }
+    100% { 
+        transform: rotate(360deg);
+        top: 100%;
+        left: 50%;
+    }
+}
